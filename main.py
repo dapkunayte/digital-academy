@@ -8,5 +8,5 @@ if __name__ == '__main__':
     first.titleTask("hello world")  # Выполнение задачи Заголовок
     first.amountFormatTask(100500.157)  # Выполнение задачи Форматированный вывод денежной суммы
     second.sumOfThreeRandNum()  # выполнение задачи Среднее
-    second.division()
-    second.rounding(14.721)
+    second.division()  # Выполнение задачи Деление и ещё раз деление
+    second.rounding(14.721) # Выполнение задачи округление
