@@ -43,3 +43,4 @@ def carpet(height,word):
     for i in range(height - 2, 0, -2): #цикл по i с height-2 до 0 с уменьшением i на 2 каждую итерацию. С height-2 потому, что в прошлом цикле последний раз вывели символ height-2 раз, т.к на height цикл уже закончился
         print(('<>' * i).center(width, '+'))
 
+

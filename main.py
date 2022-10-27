@@ -9,5 +9,5 @@ if __name__ == '__main__':
     second.sumOfThreeRandNum()  # выполнение задачи Среднее
     second.division()  # Выполнение задачи Деление и ещё раз деление
     second.rounding(14.721)  # Выполнение задачи округление
-    first.pythonArtN(3)  # Выполнение задачи python Art для буквы N
+    first.pythonArtN(10)  # Выполнение задачи python Art для буквы N
     first.carpet(11,'HOME SWEET HOME') # Выполнение задачи дизайнер ковриков
