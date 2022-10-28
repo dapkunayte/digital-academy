@@ -58,3 +58,5 @@ def mean(list)->float:
 
 def stripedWord(string):
     strList = string.split(" ")
+
+

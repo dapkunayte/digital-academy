@@ -7,3 +7,4 @@ if __name__ == '__main__':
     print(junior.threeWords("1 2 3 4"))
     print(junior.leftReplace(["bright aright", "ok"]))
     print(junior.mean([3, 6, 20, 99, 10, 15]))
+
