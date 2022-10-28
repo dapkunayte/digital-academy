@@ -1,4 +1,5 @@
 import math
+import re
 #Задача Произведение цифр
 def multiply(num)->int:
     if type(num)!=int:
@@ -56,7 +57,13 @@ def mean(list)->float:
     else:
         return (list[int((len(list)/2))]+list[int((len(list)/2)-1)])/2 # возвращаем среднее между элементами списка с иднексами длинны массива, деленого на 2, и предыдщуего относительно него
 
-def stripedWord(string):
-    strList = string.split(" ")
-
-
+# Полосатые слова
+def stripedWord(s):
+    sWithoutPunct = re.sub(r'[^\w\s]', ' ', s)  # удаление пунктуации (удаляем все, кроме буквенных символов и пробелов)
+    words = 0
+    sArr = sWithoutPunct.split(" ")
+    for i in sArr:
+        # поиск: если длина слова больше 1 и слово не попадает под регулярное выражение, то мы прибавляем количество "полосатых слов". Регулярка смотрит наличие двух согласных или гласных подряд. Если их нет, то условие выполняется
+        if len(i)>1 and not(re.search(r"[BCDFGHJKLMNPQRSTVWXZ]{2,}|[AEIOUY]{2,}",i,re.IGNORECASE)):
+            words+=1
+    return words
