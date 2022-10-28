@@ -8,3 +8,4 @@ if __name__ == '__main__':
     part_3.pythonArtN(3)  # Выполнение задачи python Art для буквы N
     part_3.carpet(11,'HOME SWEET HOME') # Выполнение задачи дизайнер ковриков
 
+
