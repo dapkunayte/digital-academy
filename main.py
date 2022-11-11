@@ -9,4 +9,12 @@ if __name__ == '__main__':
     print("Значение медианы: ", junior.mean([3, 6, 20, 99, 10, 15]))
     print("Количество 'полосатых' слов: ", junior.striped_word("Dog,cat,mouse,bird.Human."))
 
+    # Крестики-нолики
+    data = [
+        "OOX",
+        "XOO",
+        "OXO"
+    ]
+    print("Победитель: ", junior.cross_zero(data))
+
 
