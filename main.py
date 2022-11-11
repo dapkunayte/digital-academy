@@ -1,12 +1,25 @@
-import junior
+import part_7
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print("Результат умножения чисел: ", junior.multiply(999))
-    print("Перевернутое число: ", junior.reverse(156384741))
-    print("Есть ли три слова подряд: ", junior.three_words("ab ab ab 4"))
-    print("Результат замены: ", junior.left_replace(["bright aright", "ok"]))
-    print("Значение медианы: ", junior.mean([3, 6, 20, 99, 10, 15]))
-    print("Количество 'полосатых' слов: ", junior.striped_word("Dog,cat,mouse,bird.Human."))
+    # анализ текста
+    words_popularity, letters_popularity = part_7.popularity_count("hello, word of word")
+    print("Подсчет слов: ", words_popularity, " \nПодсчёт букв : ", letters_popularity,"\n")
+
+    # ленивый спекулянт
+    rates = {'Sberbank': 55.8, 'VTB24': 53.91, 'ROSBANK': 53.91}
+    best_banks = part_7.lazy_trader(rates)
+    print("Наиболее выгодное предложение:")
+    for key, value in best_banks.items():
+        print(key, value, sep=" -> ", end="\n")
+
+    # вверх дном
+    book = {'Petr': '546810', 'Katya': '241815'}
+    print("\nИнвертированный словарь:", part_7.reverse_dict(book),"\n")
+
+    #Структурируем данные
+    dates = ['2017-03-01', '2017-03-02']
+    rates = [55.7, 55.2]
+    print("Значение курса на дату:", part_7.merge_lists(dates,rates))
 
 
