@@ -1,69 +1,86 @@
 import math
 import re
+import string
+
 #Задача Произведение цифр
 def multiply(num)->int:
     if type(num)!=int:
         print('получено не число')
         return 0
-    strNum = str(num)
-    strNum = strNum.strip('0')
-    res = 1
-    for i in strNum:
-        res*=int(i)
-    return res
+    str_num = str(num)
+    str_num = str_num.strip('0')
+    result = 1
+    for i in str_num:
+        result*=int(i)
+    return result
 
 # Число "наоборот" (усложненное)
 def reverse(num)->int:
-    strNum = str(num)
-    if strNum[len(strNum)-1]=="0" and len(strNum)>1:  # обрабатываем последний 0, чтобы исключить его из решения
-        strNum = strNum[:len(strNum)-1]
-    if strNum[0]=="-":  # обрабатываем минус
-        strNum = strNum[0] + strNum[1:][::-1] # прибавляем "-" после чего прибавляем перевернутую часть строки без минуса
+    str_num = str(num)
+    len_num = len(str_num) # длина строки
+    if str_num[len_num-1]=="0" and len_num>1:  # обрабатываем последний 0, чтобы исключить его из решения
+        str_num = str_num[:len_num-1]
+    if str_num[0]=="-":  # обрабатываем минус
+        str_num = str_num[0] + str_num[1:][::-1] # прибавляем "-" после чего прибавляем перевернутую часть строки без минуса
     else:
-        strNum = strNum[::-1] # переварачиваем строку
+        str_num = str_num[::-1] # переварачиваем строку
 
-    if int(strNum)>=(2**31)-1 or int(strNum)<=-(2**31): #обрабатываем граничные условия
+    max_int = (2**31)-1
+    min_int = -(2**31)
+
+    if int(str_num) >= max_int or int(str_num) <= min_int: #обрабатываем граничные условия
         return 0
     else:
-        return int(strNum)
+        return int(str_num)
 
 #Три слова
-def threeWords(string)->bool:
-    strSplit = string.split(sep=' ')
-    k = 0
-    for i in strSplit:
-        if i.isdigit():
-            k=0
+def three_words(string)->bool:
+    str_split = string.split(sep=' ')
+    words_counter = 0
+    for i in str_split:
+        if words_counter>=3:
+            return True
+            break
+        elif i.isdigit():
+            words_counter=0
         else:
-            k+=1
+            words_counter+=1
 
-    if k>=3:
-        return True
-    else:
+    if words_counter<=3:
         return False
 
 # Мир захватили левши
-def leftReplace(list):
-    for i in range(len(list)): # цикл с индексом по элементам списка
-        if "right" in list[i]: # если right входит в элемент списка по индексу
-            list[i] = list[i].replace("right","left") # выполняем замену
-    return list
+def left_replace(words):
+    len_words = len(words)
+    for i in range(len_words): # цикл с индексом по элементам списка
+        if "right" in words[i]: # если right входит в элемент списка по индексу
+            words[i] = words[i].replace("right","left") # выполняем замену
+    return words
 
 # Медиана
-def mean(list)->float:
-    list = sorted(list)
-    if len(list)%2!=0: # если количество элементов нечетное
-        return list[math.ceil(len(list)/2)] # возвращаем элемент списка, который находится посередине : определяем индекс путем деления длины на 2 и округлением до целого
+def mean(numbers)->float:
+    numbers = sorted(numbers)
+    len_numbers = len(numbers)
+    if len_numbers %2!=0: # если количество элементов нечетное
+        mean_index = math.ceil(len_numbers/2) # серидина списка
+        return numbers[mean_index] # возвращаем элемент списка, который находится посередине : определяем индекс путем деления длины на 2 и округлением до целого
     else:
-        return (list[int((len(list)/2))]+list[int((len(list)/2)-1)])/2 # возвращаем среднее между элементами списка с иднексами длинны массива, деленого на 2, и предыдщуего относительно него
+        mean_index_1 = int((len_numbers/2))
+        mean_index_2 = int((len_numbers /2)-1)
+        return (numbers[mean_index_1 ]+numbers[mean_index_2])/2 # возвращаем среднее между элементами списка с иднексами длинны массива, деленого на 2, и предыдщуего относительно него
 
 # Полосатые слова
-def stripedWord(s):
-    sWithoutPunct = re.sub(r'[^\w\s]', ' ', s)  # удаление пунктуации (удаляем все, кроме буквенных символов и пробелов)
+def striped_word(s):
+    s_without_punct = re.sub(r'[^\w\s]', ' ', s)  # удаление пунктуации (удаляем все, кроме буквенных символов и пробелов)
     words = 0
-    sArr = sWithoutPunct.split(" ")
-    for i in sArr:
+    str_arr = s_without_punct.split(" ")
+    for i in str_arr:
         # поиск: если длина слова больше 1 и слово не попадает под регулярное выражение, то мы прибавляем количество "полосатых слов". Регулярка смотрит наличие двух согласных или гласных подряд. Если их нет, то условие выполняется
         if len(i)>1 and not(re.search(r"[BCDFGHJKLMNPQRSTVWXZ]{2,}|[AEIOUY]{2,}",i,re.IGNORECASE)):
             words+=1
     return words
+
+
+
+
+
