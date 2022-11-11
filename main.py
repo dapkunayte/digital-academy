@@ -22,4 +22,8 @@ if __name__ == '__main__':
     rates = [55.7, 55.2]
     print("Значение курса на дату:", part_7.merge_lists(dates,rates))
 
+    #Римские цифры
+    num = 60
+    print("\nЧисло ",num, " в римском формате: ", part_7.int_to_roman(num))
+
 
