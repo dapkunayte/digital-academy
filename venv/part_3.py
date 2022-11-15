@@ -2,23 +2,23 @@
 import os
 
 #Решил реализовать функцию так, чтобы использовалось имя учётной записи компьютера
-def helloPythonTask():
+def hello_python_task():
     print("-----Задача Welcome to Python-----")
     name = os.getlogin() #  получение имени учётной записи
     print(f'Hello {name}! You just delved into Python. Great start!\n') # вывод нужного текста
 
 #Функция решения задачи "Заголовок"
-def titleTask(text):
+def title_task(text):
     print("-----Задача Заголовок-----")
     print("Заголовок:",text.title(),"\n")
 
 #Функция решения задачи "Форматированный вывод денежной суммы"
-def amountFormatTask(amount):
+def amount_format_task(amount):
     print("-----Форматированный вывод денежной суммы-----")
-    amountFormat = "{:.2f}".format(amount)
-    print("Форматированный вывод:",amountFormat,"\n")
+    amount_format = "{:.2f}".format(amount)
+    print("Форматированный вывод:",amount_format,"\n")
 
-def pythonArtN(thickness):
+def python_art(thickness):
     print("-----Python Art----\n")
     c="N"
     if thickness==1 or thickness==0:
