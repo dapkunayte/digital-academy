@@ -1,6 +1,6 @@
 import random as rnd
 
-def sumOfThreeRandNum():
+def sum_of_three_rand_num():
     print("-----Задача Среднее-----")
     a,b,c = rnd.randint(1, 100),rnd.randint(1, 100),rnd.randint(1, 100)
     sum = (a+b+c)/3
