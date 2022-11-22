@@ -41,14 +41,14 @@ def decrypter(crypt) -> str:
 
 def ghost_age(transparency) -> int:
     max_trasparency = 10000
-    p = 0
+    age = 0
     while transparency != max_trasparency:
-        p += 1
+        age += 1
         if isFibonacci(p):
             max_trasparency -= p
         else:
             max_trasparency += 1
-    return p
+    return age
 
 
 # две функции ниже необходимы для проверки, является ли число элементом последовательности фиббоначи
