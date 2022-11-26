@@ -42,8 +42,8 @@ def ghost_age(transparency) -> int:
     age = 0
     while transparency != max_trasparency:
         age += 1
-        if isFibonacci(p):
-            max_trasparency -= p
+        if isFibonacci(age):
+            max_trasparency -= age
         else:
             max_trasparency += 1
     return age

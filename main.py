@@ -31,6 +31,7 @@ if __name__ == '__main__':
     print(jp8.decrypter(crypt))
 
     # возраст приведений
-    print(jp8.ghost_age(9995))
+    print("Возраст приведения", jp8.ghost_age(9990))
+    print(max(1, 1))
 
 
