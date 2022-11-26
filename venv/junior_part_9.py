@@ -12,45 +12,57 @@ class bcolors: # при помощи этого можно реализоват�
 def maximum(*variables,key=lambda x: x):
         if len(variables)==1:
             if hasattr(*variables,"__iter__"): # проверка, является ли переданный аргумент (когда он один) итерируемым
+                try:
+                    variables_dict = {}
+                    for variable in list(*variables):
+                        if key(variable) not in variables_dict.keys():
+                            variables_dict[key(variable)] = variable
+                    sorted_variables = sorted(variables_dict.items())
+                    len_sorted_variables = len(sorted_variables)-1
+                    return sorted_variables[len_sorted_variables][1]
+                except ValueError:
+                    return f"{bcolors.FAIL}ValueError: object cant't be used with this key"
+            else:
+                return f"{bcolors.FAIL}TypeError: {type(*variables)} object is not iterable"
+        else:
+            try:
+                variables_dict = {}
+                for variable in list(variables):
+                    if key(variable) not in variables_dict.keys():
+                        variables_dict[key(variable)] = variable
+                sorted_variables = sorted(variables_dict.items())
+                len_sorted_variables = len(sorted_variables) - 1
+                return sorted_variables[len_sorted_variables][1]
+            except ValueError:
+                return f"{bcolors.FAIL}ValueError: object cant't be used with this key"
+
+
+def minimum(*variables, key=lambda x: x):
+    if len(variables) == 1:
+        if hasattr(*variables, "__iter__"):  # проверка, является ли переданный аргумент (когда он один) итерируемым
+            try:
                 variables_dict = {}
                 for variable in list(*variables):
                     if key(variable) not in variables_dict.keys():
                         variables_dict[key(variable)] = variable
                 sorted_variables = sorted(variables_dict.items())
-                len_sorted_variables = len(sorted_variables)-1
-                return sorted_variables[len_sorted_variables][1]
-            else:
-                return f"{bcolors.FAIL}TypeError: {type(*variables)} object is not iterable"
+                len_sorted_variables = len(sorted_variables) - 1
+                return sorted_variables[0][1]
+            except ValueError:
+                return f"{bcolors.FAIL}ValueError: object cant't be used with this key"
         else:
+            return f"{bcolors.FAIL}TypeError: {type(*variables)} object is not iterable"
+    else:
+        try:
             variables_dict = {}
             for variable in list(variables):
                 if key(variable) not in variables_dict.keys():
                     variables_dict[key(variable)] = variable
             sorted_variables = sorted(variables_dict.items())
             len_sorted_variables = len(sorted_variables) - 1
-            return sorted_variables[len_sorted_variables][1]
-
-
-def minimum(*variables, key=lambda x: x):
-    if len(variables) == 1:
-        if hasattr(*variables, "__iter__"):  # проверка, является ли переданный аргумент (когда он один) итерируемым
-            variables_dict = {}
-            for variable in list(*variables):
-                if key(variable) not in variables_dict.keys():
-                    variables_dict[key(variable)] = variable
-            sorted_variables = sorted(variables_dict.items())
-            len_sorted_variables = len(sorted_variables) - 1
             return sorted_variables[0][1]
-        else:
-            return f"{bcolors.FAIL}TypeError: {type(*variables)} object is not iterable"
-    else:
-        variables_dict = {}
-        for variable in list(variables):
-            if key(variable) not in variables_dict.keys():
-                variables_dict[key(variable)] = variable
-        sorted_variables = sorted(variables_dict.items())
-        len_sorted_variables = len(sorted_variables) - 1
-        return sorted_variables[0][1]
+        except ValueError:
+            return f"{bcolors.FAIL}ValueError: object cant't be used with this key"
 """
         a_with_key = a
         if key != None: # если ключ был передан

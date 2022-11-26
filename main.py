@@ -50,6 +50,9 @@ if __name__ == '__main__':
     print(jp9.minimum([[1,2], [3, 4], [9, 0]], key=lambda x: x[1]))
     print(jp9.maximum([[1,2], [3, 4], [9, 0]], key=lambda x: x[1]))
 
+    print(jp9.maximum("hello",key=int))
+    print(jp9.maximum(1))
+
 
 
 
