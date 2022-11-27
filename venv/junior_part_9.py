@@ -9,6 +9,7 @@ class bcolors: # при помощи этого можно реализоват�
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
+# функция максимума
 def maximum(*variables,key=lambda x: x):
         if len(variables)==1:
             if hasattr(*variables,"__iter__"): # проверка, является ли переданный аргумент (когда он один) итерируемым
@@ -36,7 +37,7 @@ def maximum(*variables,key=lambda x: x):
             except ValueError:
                 return f"ValueError: object cant't be used with this key"
 
-
+# функция минимума
 def minimum(*variables, key=lambda x: x):
     if len(variables) == 1:
         if hasattr(*variables, "__iter__"):  # проверка, является ли переданный аргумент (когда он один) итерируемым
@@ -64,6 +65,7 @@ def minimum(*variables, key=lambda x: x):
         except ValueError:
             return f"ValueError: object cant't be used with this key"
 
+# пешки
 def pawns(set_pawns)->int:
     list_pawns = list(set_pawns)
     safe_pawns = [[chr(ord(list(pawn)[0])-1)+str(int(pawn[1])-1), chr(ord(list(pawn)[0])+1)+str(int(pawn[1])-1)] for pawn in list_pawns]
