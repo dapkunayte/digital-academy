@@ -1,21 +1,4 @@
-# при помощи этого можно реализовать вывод текста в консоль с другим
-# цветом (использовал FAIL для ошибок) как пример
-# f"{bcolors.FAIL}ValueError: object cant't be used with this key", потом
-# убрал
-class bcolors:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKCYAN = '\033[96m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
-
 # функция максимума
-
-
 def maximum(*variables, key=lambda x: x):
     if len(variables) == 1:
         if hasattr(*variables, "__iter__"):  # проверка, является ли переданный аргумент (когда он один) итерируемым
@@ -44,8 +27,6 @@ def maximum(*variables, key=lambda x: x):
             return f"ValueError: object cant't be used with this key"
 
 # функция минимума
-
-
 def minimum(*variables, key=lambda x: x):
     if len(variables) == 1:
         if hasattr(*variables, "__iter__"):  # проверка, является ли переданный аргумент (когда он один) итерируемым
@@ -74,8 +55,6 @@ def minimum(*variables, key=lambda x: x):
             return f"ValueError: object cant't be used with this key"
 
 # пешки
-
-
 def pawns(set_pawns) -> int:
     list_pawns = list(set_pawns)
     safe_pawns = [[chr(ord(list(pawn)[0]) - 1) + str(int(pawn[1]) - 1), chr(ord(list(pawn)[0]) + 1) + str(int(pawn[1]) - 1)] for pawn in list_pawns]
