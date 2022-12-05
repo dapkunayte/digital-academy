@@ -14,7 +14,6 @@ def is_palindrome(word) -> bool:
     else:
         return False
 
-
 def dean_office(students_info, need_to):
     # имена в алфавитном порядке
     if need_to == 'sorted_names':
