@@ -24,6 +24,6 @@ if __name__ == '__main__':
     print("Имена студентов в алфавитном порядке:", part_9.dean_office(students_info, sorted_names))
     younger_student, older_student = part_9.dean_office(students_info, sorted_ages)
     print("Самый младший студент:", younger_student, "Самый старший студент:", older_student)
-    print("Лучшая успеваемость по группам", part_9.dean_office(students_info,best_marks_in_group))
+    print("Лучшая успеваемость по группам", part_9.dean_office(students_info, best_marks_in_group))
     print("Средний балл по каждой группе по каждому предмету", part_9.dean_office(students_info, mean_marks))
 

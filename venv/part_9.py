@@ -4,7 +4,6 @@ def reverse_number(number) -> list:
     str_number = str(number)
     return list(str_number)[::-1]  # используем срез для разворота списка
 
-
 def is_palindrome(word) -> bool:
     if not isinstance(
             word, str):  # проверка на тип входных данных (для обработки чисел)
