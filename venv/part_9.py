@@ -1,6 +1,5 @@
 from collections import defaultdict
 
-
 def reverse_number(number) -> list:
     str_number = str(number)
     return list(str_number)[::-1]  # используем срез для разворота списка
