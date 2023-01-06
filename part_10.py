@@ -29,7 +29,7 @@ test_sentences = ['капитан джек воробей',
 print(refactor(test_sentences))
 
 
-def lazy_func(n: int) -> list:
+def lazy_func(n: int) -> list:  # Ленивая функция
     for i in range(n):
         if i == 0:
             yield -10
@@ -49,6 +49,15 @@ print(list(lazy_func(8)))
 print(next(sequence))
 print(next(sequence))
 print(next(sequence))
+
+
+def largest_histogram(histogram: list) -> int:  # Самый большой прямоугольник
+    len_hist = len(histogram) + 1
+    result = [min(histogram[j:j + i])*len(histogram[j:j + i]) for i in range(1, len_hist) for j in range(len_hist - i)]
+    return max(result)
+
+
+print(largest_histogram([2, 1, 4, 5, 1, 3, 3]))
 
 
 
