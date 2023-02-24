@@ -11,7 +11,7 @@ print(list(create_random(3)))
 
 
 def merge_list(list_1, list_2: list) -> list:  # Ленивое слияние
-    return chain(list_1,list_2)
+    return chain(list_1, list_2)
 
 
 print(list(merge_list([1, 2], [3, 4])))
