@@ -10,7 +10,7 @@ def create_random(n: int):  # Случайности не случайны
 print(list(create_random(3)))
 
 
-def merge_list(list_1, list_2: list) -> list:  # Ленивое слияние
+def merge_list(list_1, list_2: list):  # Ленивое слияние
     return chain(list_1, list_2)
 
 
